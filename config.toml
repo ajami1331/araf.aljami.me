@@ -1,3 +1,69 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseurl = "https://araf.aljami.me"
+title = "Araf Al-Jami"
+
+theme = "hugo-coder"
+
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "b2"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+disqusShortname = "araf.aljami.me"
+
+[params]
+    author = "Araf Al-Jami"
+    description = "Araf Al-Jami's personal website"
+    keywords = "blog,developer,personal"
+    info = "Software Engineer @SELISE rockin' software"
+    avatarurl = "images/avatar.jpg"
+    footercontent = ""
+
+    dateformat = "January 2, 2006"
+
+    hideCredits = false
+    hideCopyright = false
+
+    rtl = false
+
+    # Use inverted colors
+    inverted = false
+
+    # Series see also post count
+    maxSeeAlsoItems = 5
+
+    # Custom CSS
+    custom_css = []
+
+[taxonomies]
+  series = "series"
+
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/CLown1331/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter"
+    weight = 2
+    url = "https://twitter.com/_CLown1331_/"
+[[params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 3
+    url = "https://www.linkedin.com/in/araf-al-jami-6b00b9135/"
+[[params.social]]
+    name = "Medium"
+    icon = "fab fa-medium"
+    weight = 4
+    url = "https://medium.com/@clown1331"
+
+
+[languages]
+    [languages.en]
+        languagename = "English"
