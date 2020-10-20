@@ -1,0 +1,62 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-align-center {
+    text-align: center;
+}
+.list-style-none {
+    list-style: none;
+    margin: 3rem 0 1rem;
+    padding: 0;
+}
+
+.list-item-style-none {
+    display: inline-block;
+    position: relative;
+}
+
+.avatar img {
+    width: 20rem;
+    height: auto;
+    border-radius: 50%;
+}
+
+.font-icon {
+    font-size: 3.2rem;
+    color: black;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.color-black {
+    color: black;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+.navigation {
+    height: 6rem;
+    width: 100%;
+}
+.content {
+    flex: 1;
+    display: flex;
+    margin-top: 1.6rem;
+    margin-bottom: 3.2rem;
+}
+.container {
+    margin: 0 auto;
+    max-width: 90rem;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.project-name a {
+    text-decoration: none;
+}
