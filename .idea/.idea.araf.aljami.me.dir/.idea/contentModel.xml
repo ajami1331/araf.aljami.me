@@ -3,14 +3,6 @@
   <component name="ContentModelStore">
     <e p="C:\Users\clown\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\clown\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_.19.01" t="ExcludeRecursive" />
-    <e p="E:\code\araf.aljami.me" t="IncludeFlat">
-      <e p="node_modules\ejs" t="IncludeRecursive" />
-      <e p="node_modules\express" t="IncludeRecursive" />
-      <e p="node_modules\front-matter" t="IncludeRecursive" />
-      <e p="node_modules\fs-extra" t="IncludeRecursive" />
-      <e p="node_modules\glob" t="IncludeRecursive" />
-      <e p="node_modules\marked" t="IncludeRecursive" />
-      <e p="node_modules\nodemon" t="IncludeRecursive" />
-    </e>
+    <e p="E:\code\araf.aljami.me" t="IncludeFlat" />
   </component>
 </project>
