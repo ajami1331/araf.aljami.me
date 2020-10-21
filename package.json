@@ -2,7 +2,7 @@
   "name": "araf.aljami.me",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node .",
     "watch": "nodemon ./app.js.js localhost 8080 -e js,mjs,json,md,ejs",
