@@ -2,10 +2,10 @@
   "name": "araf.aljami.me",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node .",
-    "watch": "nodemon ./app.js.js localhost 8080 -e js,mjs,json,md,ejs",
+    "watch": "nodemon ./app.js localhost 8080 -e js,mjs,json,md,ejs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +24,8 @@
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
-    "marked": "^1.2.0"
+    "marked": "^1.2.0",
+    "reload": "^3.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
