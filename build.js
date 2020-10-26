@@ -8,8 +8,9 @@ module.exports = () => {
     const glob = require('glob');
     const config = require('./config');
 
-    const srcPath = './src';
+    const srcPath = config.build.srcPath;
     const distPath = config.build.outputPath;
+    const cleanUrls = config.site.cleanUrls;
 
 // clear destination folder
     fse.emptyDirSync(distPath);
@@ -22,8 +23,11 @@ module.exports = () => {
 
     files.forEach((file, i) => {
         const fileData = path.parse(file);
-        const destPath = path.join(distPath, fileData.dir);
+        let destPath = path.join(distPath, fileData.dir);
 
+        if (cleanUrls && fileData.name !== 'index') {
+            destPath = path.join(destPath, fileData.name);
+        }
         // create destination directory
         fse.mkdirsSync(destPath);
 
@@ -64,7 +68,11 @@ module.exports = () => {
         );
 
         // save the html file
-        fse.writeFileSync(`${destPath}/${fileData.name}.html`, completePage);
+        if (cleanUrls) {
+            fse.writeFileSync(`${destPath}/index.html`, completePage);
+        } else {
+            fse.writeFileSync(`${destPath}/${fileData.name}.html`, completePage);
+        }
     });
     console.log('build finished');
 }
