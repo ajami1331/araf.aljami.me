@@ -97,10 +97,14 @@ pre {
         font-size: 11px;
     }
     .project-name {
-         font-size: 1.2rem;
+        font-size: 1.2rem;
+        font-weight: bold;
      }
     .navigation-list-item {
         font-size: 1.2rem;
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+        font-weight: bold;
     }
 }
 
@@ -113,9 +117,51 @@ pre {
     }
     .project-name {
         font-size: 1rem;
+        font-weight: bolder;
     }
     .navigation-list-item {
         font-size: 1rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-weight: bolder;
+    }
+}
+
+@media (max-width: 320px) {
+    * {
+        font-size: 11px;
+    }
+    pre {
+        font-size: 10px;
+    }
+    .project-name {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    .navigation-list-item {
+        font-size: 1rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        font-weight: bolder;
+    }
+}
+
+@media (max-width: 280px) {
+    * {
+        font-size: 10px;
+    }
+    pre {
+        font-size: 9px;
+    }
+    .project-name {
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    .navigation-list-item {
+        font-size: 1rem;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        font-weight: bolder;
     }
 }
 
