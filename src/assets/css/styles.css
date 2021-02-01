@@ -12,6 +12,16 @@
     padding: 0;
 }
 
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.67em 0;
+}
+
 .list-item-style-none {
     display: inline-block;
     position: relative;
@@ -75,6 +85,10 @@
 
 .w-100 {
     width: 100%;
+}
+
+.blog-content {
+    margin-top: 2.5rem;
 }
 
 pre {
