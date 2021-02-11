@@ -61,13 +61,13 @@ h2 {
 }
 .container {
     margin: 0 auto;
-    max-width: 60rem;
+    max-width: 55rem;
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
 }
 .utterances {
-    max-width: 60rem !important;
+    max-width: 55rem !important;
 }
 .project-name {
     text-decoration: none;
