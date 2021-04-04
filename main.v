@@ -22,23 +22,24 @@ fn build(site Site, path string) {
     for f in files {
         new_path := cur_dir + '/' + f
         if os.is_dir(new_path) {
-            println(new_path)
             build(site, new_path)
         } else {
-            dest_path := 'dist' + path + '/' + f +
+            dest_path := 'dist' + path + '/' + f[0..(f.len - os.file_ext(f).len)] +
             if f != 'index.html' {
                 '/index.html'
             } else {
-                ''
-            }
-            build_file(site, new_path, dest_path)
+                os.file_ext(f)
+            }            
+            os.mkdir_all (os.dir(dest_path)) or {}
+            built_file := build_file(site, new_path)
+            os.write_file(dest_path, built_file) or {}
         }
     }
 }
 
-fn build_file(site Site, src_path string, dest_path string) {
+fn build_file(site Site, src_path string) string {
     lines := os.read_lines(src_path) or {
-        return
+        return ''
     }
     mut header_json := ''
     mut json_end := -1
@@ -63,8 +64,7 @@ fn build_file(site Site, src_path string, dest_path string) {
         body += lines[i]
     }
     template_path := 'templates/' + page.layout + '.html'
-    println(template_path)
-    println($tmpl('templates/default.html'))
+    return $tmpl('templates/default.html')
 }
 
 fn main() {
@@ -74,13 +74,8 @@ fn main() {
         title: 'Araf Al-Jami'
         version: time.now().unix_time()
     }
-    page := Page {
-        description: 'Araf Al-Jami\'s Blog'
-        title: 'Araf Al-Jami',
-        layout: 'default'
-    }
-    body := ''
-    println($tmpl('templates/default.html'))
-    // os.cp_all('assets', 'dist/assets', true) or {}
-    // build(site, '')
+    os.rmdir_all('dist') or {}
+    os.mkdir('dist') or {}
+    os.cp_all('assets', 'dist/assets', true) or {}
+    build(site, '')
 }
