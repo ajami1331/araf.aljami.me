@@ -1,6 +1,6 @@
 ﻿---
 {
-    "layout: "blog",
+    "layout": "blog",
     "title": "First Post, Hello World",
     "date": "Tue, 02 Feb 2021"
 }

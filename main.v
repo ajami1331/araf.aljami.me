@@ -44,9 +44,9 @@ fn build_file(site Site, src_path string, is_markdown bool) string {
     }
     mut header_json := ''
     mut json_end := -1
-    if lines[0] == '---' {
+    if lines[0].contains('---') {
         for i in 1 .. lines.len {
-            if lines[i] == '---' {
+            if lines[i].contains('---') {
                 json_end = i
                 break
             }
