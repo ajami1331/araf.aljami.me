@@ -1,6 +1,7 @@
 import time
 import json
 import os
+import markdown
 
 struct Page {
     description string
@@ -22,7 +23,7 @@ fn build(site Site, path string) {
     for f in files {
         new_path := cur_dir + '/' + f
         if os.is_dir(new_path) {
-            build(site, new_path)
+            build(site, new_path['pages'.len..new_path.len])
         } else {
             dest_path := 'dist' + path + '/' + f[0..(f.len - os.file_ext(f).len)] +
             if f != 'index.html' {
@@ -31,13 +32,13 @@ fn build(site Site, path string) {
                 os.file_ext(f)
             }            
             os.mkdir_all (os.dir(dest_path)) or {}
-            built_file := build_file(site, new_path)
+            built_file := build_file(site, new_path, os.file_ext(f) == '.md')
             os.write_file(dest_path, built_file) or {}
         }
     }
 }
 
-fn build_file(site Site, src_path string) string {
+fn build_file(site Site, src_path string, is_markdown bool) string {
     lines := os.read_lines(src_path) or {
         return ''
     }
@@ -62,6 +63,9 @@ fn build_file(site Site, src_path string) string {
     mut body := ''
     for i in json_end + 1 .. lines.len {
         body += lines[i]
+    }
+    if is_markdown {
+        body = markdown.to_html(body)
     }
     template_path := 'templates/' + page.layout + '.html'
     return $tmpl('templates/default.html')
