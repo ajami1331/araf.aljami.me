@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <%- include('../partials/head') %>
+        @include 'header'
     </head>
     <body>
         <main class="wrapper">
-            <%- include('../partials/navigations') %>
+            @include 'navigations'
             <section class="content">
-
-                <%- body %>
+                @body
             </section>
             <footer class="site-footer">
 
             </footer>
-            <script src="/reload/reload.js"></script>
         </main>
     </body>
 </html>

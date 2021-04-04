@@ -1,6 +1,8 @@
 ---
-layout: blog
-Title: Authored Problems
+{
+    "layout": "blog",
+    "title": "Authored Problems"
+}
 ---
 ## Here is a list problems authored by me.
 | #   | Problem Title | Discussion |
