@@ -67,8 +67,21 @@ fn build_file(site Site, src_path string, is_markdown bool) string {
     if is_markdown {
         body = markdown.to_html(body)
     }
-    template_path := 'templates/' + page.layout + '.html'
+    if page.layout == 'blog' {
+        return blog(site, page, body)
+    }
+    if page.layout == 'markdown' {
+        return markdown(site, page, body)
+    }
     return $tmpl('templates/default.html')
+}
+
+fn blog(site Site, page Page, body string) string {
+    return $tmpl('templates/blog.html')
+}
+
+fn markdown(site Site, page Page, body string) string {
+    return $tmpl('templates/markdown.html')
 }
 
 fn main() {
