@@ -36,5 +36,5 @@ jobs:
           username: ${{ secrets.DEPLOY_USERNAME }}
           port: ${{ secrets.DEPLOY_PORT }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./public"
+          source: ${{ secrets.DEPLOY_SOURCE_PATH }}
           target: ${{ secrets.DEPLOY_PATH }}
