@@ -18,7 +18,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ${{ secrets.DEPLOY_SOURCE_PATH }}
       - name: Find my ip
         id: findIp
         uses: fjogeleit/http-request-action@master
