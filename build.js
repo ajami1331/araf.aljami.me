@@ -10,7 +10,7 @@ const srcPath = config.build.srcPath;
 const distPath = config.build.outputPath;
 const cleanUrls = config.site.cleanUrls;
 
-const buildPage = (file, i) => {
+const buildPage = (file, i, debug) => {
     const fileData = path.parse(file);
     let destPath = path.join(distPath, fileData.dir);
 
@@ -28,6 +28,8 @@ const buildPage = (file, i) => {
     const templateConfig = Object.assign({}, config, {
         page: pageData.attributes
     });
+    templateConfig['site']['debug'] = debug;
+
     let pageContent;
 
     // generate page content according to file type
@@ -64,7 +66,7 @@ const buildPage = (file, i) => {
     }
 };
 
-const build = () => {
+const build = (debug) => {
     console.log('build started');
 
 // clear destination folder
@@ -79,7 +81,7 @@ const build = () => {
 // read pages
     const files = glob.sync('**/*.@(md|ejs|html)', { cwd: `${srcPath}/pages` });
 
-    files.forEach(buildPage);
+    files.forEach((f, i) => buildPage(f, i, debug));
 
     console.log('build finished');
 };

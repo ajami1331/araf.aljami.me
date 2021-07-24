@@ -1,5 +1,5 @@
 ﻿const build = require('./build');
-build();
+build(true);
 const port = process.env.PORT || 8080;
 const http = require('http');
 const reload = require('reload');
