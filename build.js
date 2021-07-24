@@ -73,6 +73,9 @@ const build = () => {
 // copy assets folder
     fse.copy(`${srcPath}/assets`, `${distPath}/assets`);
 
+// copy public folder
+    fse.copy(`${srcPath}/public`, `${distPath}`);
+
 // read pages
     const files = glob.sync('**/*.@(md|ejs|html)', { cwd: `${srcPath}/pages` });
 
