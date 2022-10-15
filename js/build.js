@@ -79,7 +79,7 @@ const updateBlogIndex = () => {
     files.forEach(file => {
         const fileData = path.parse(file);
         const url = `blogs/${fileData.name}${cleanUrls ? '/' : '.html'}`
-        const data = fse.readFileSync(`${srcPath}/pages/blogs/${fileData.name}`, 'utf-8');
+        const data = fse.readFileSync(`${srcPath}/pages/blogs/${file}`, 'utf-8');
         const pageData = frontMatter(data).attributes;
         blogIndexStrArray.push(`>> - [${pageData.Title}](/${url})`)
     });
