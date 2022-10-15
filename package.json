@@ -26,11 +26,5 @@
     "glob": "^7.1.6",
     "marked": "^4.0.12",
     "reload": "^3.2.0"
-<<<<<<< HEAD
-=======
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
->>>>>>> 70cc96ae728786b4db2af20cd33d18741eb01a58
   }
 }
