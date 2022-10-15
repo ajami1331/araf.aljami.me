@@ -5,6 +5,7 @@ const http = require('http');
 const reload = require('reload');
 const express = require("express");
 const distDir = __dirname + "/dist/";
+console.log(distDir)
 const app = express();
 app.use(express.static(distDir));
 const server = http.createServer(app)
