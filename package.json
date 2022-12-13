@@ -20,7 +20,7 @@
   "homepage": "https://github.com/CLown1331/araf.aljami.me#readme",
   "dependencies": {
     "ejs": "^3.1.7",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.1.0",
     "glob": "^7.1.6",
