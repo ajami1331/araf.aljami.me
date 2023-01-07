@@ -21,6 +21,14 @@ jobs:
       npm install
       npm start
     displayName: 'npm install and build'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
+      Contents: '*'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
 
 - deployment: VMDeploy
   displayName: web
