@@ -9,13 +9,22 @@ trigger:
 pool:
   default
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
+jobs:
+- job: Build
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm start
-  displayName: 'npm install and build'
+  - script: |
+      npm install
+      npm start
+    displayName: 'npm install and build'
+
+- deployment: VMDeploy
+  displayName: web
+  environment:
+    name: prod
+    resourceType: VirtualMachine
+    tags: web
