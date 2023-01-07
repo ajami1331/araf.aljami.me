@@ -25,10 +25,10 @@ jobs:
     displayName: 'Copy Files to artifact staging directory'
     inputs:
       SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
-      Contents: '*'
+      Contents: '**'
       TargetFolder: $(Build.ArtifactStagingDirectory)
   - upload: $(Build.ArtifactStagingDirectory)
-    artifact: drop
+    artifact: build
 
 - deployment: VMDeploy
   displayName: web
