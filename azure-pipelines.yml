@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  self-hosted
+  default
 
 steps:
 - task: NodeTool@0
