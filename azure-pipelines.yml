@@ -31,6 +31,7 @@ jobs:
     artifact: build
 
 - deployment: VMDeploy
+  dependsOn: Build
   displayName: web
   environment:
     name: prod
