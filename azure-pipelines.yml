@@ -36,3 +36,27 @@ jobs:
     name: prod
     resourceType: VirtualMachine
     tags: web
+  strategy:
+    rolling:
+      maxParallel: 25%
+      preDeploy:
+        steps:
+          - download: current
+            artifact: build
+          - script: echo downloaded built artifact
+      deploy:
+        steps:
+          - script: echo ls ~
+      routeTraffic:
+          steps:
+          - script: echo routing traffic
+      postRouteTraffic:
+          steps:
+          - script: echo health check post-route traffic
+      on:
+        failure:
+          steps:
+          - script: echo Restore from backup! This is on failure
+        success:
+          steps:
+          - script: echo Notify! This is on success
