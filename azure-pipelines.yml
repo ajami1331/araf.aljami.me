@@ -47,7 +47,7 @@ jobs:
           - script: echo downloaded built artifact
       deploy:
         steps:
-          - script: echo ls ~
+          - script: echo ls
       routeTraffic:
           steps:
           - script: echo routing traffic
