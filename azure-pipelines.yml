@@ -47,7 +47,9 @@ jobs:
           - script: echo downloaded built artifact
       deploy:
         steps:
-          - script: cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
+          - script: |
+              cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
+              sudo service nginx restart
       routeTraffic:
           steps:
           - script: echo routing traffic
