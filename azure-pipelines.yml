@@ -47,7 +47,7 @@ jobs:
           - script: echo downloaded built artifact
       deploy:
         steps:
-          - script: ls
+          - script: ls $(Pipeline.Workspace)
       routeTraffic:
           steps:
           - script: echo routing traffic
