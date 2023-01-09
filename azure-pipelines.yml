@@ -39,7 +39,7 @@ jobs:
     tags: web
   strategy:
     rolling:
-      maxParallel: 1
+      maxParallel: 100%
       preDeploy:
         steps:
           - download: current
