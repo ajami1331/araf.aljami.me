@@ -48,6 +48,7 @@ jobs:
       deploy:
         steps:
           - script: |
+              set -e
               cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
               sudo service nginx restart
       routeTraffic:
