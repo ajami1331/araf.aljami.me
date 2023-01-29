@@ -18,6 +18,7 @@ jobs:
     displayName: 'Install Node.js'
 
   - script: |
+      set -e
       npm install
       npm start
     displayName: 'npm install and build'
