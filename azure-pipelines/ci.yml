@@ -12,24 +12,7 @@ pool:
 jobs:
 - job: Build
   steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '14.x'
-    displayName: 'Install Node.js'
-
-  - script: |
-      set -e
-      npm install
-      npm start
-    displayName: 'npm install and build'
-  - task: CopyFiles@2
-    displayName: 'Copy Files to artifact staging directory'
-    inputs:
-      SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
-      Contents: '**'
-      TargetFolder: $(Build.ArtifactStagingDirectory)
-  - upload: $(Build.ArtifactStagingDirectory)
-    artifact: build
+  - template: templates/build.yml
 
 - deployment: VMDeploy
   dependsOn: Build

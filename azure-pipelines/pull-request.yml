@@ -1,0 +1,10 @@
+pr:
+- master
+
+pool:
+  default
+
+jobs:
+- job: Build
+  steps:
+  - template: templates/build.yml
