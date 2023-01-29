@@ -22,7 +22,7 @@
     "ejs": "^3.1.7",
     "express": "^4.17.3",
     "front-matter": "^4.0.2",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^11.1.0",
     "glob": "^7.1.6",
     "marked": "^4.0.12",
     "reload": "^3.2.0"
