@@ -14,6 +14,9 @@ jobs:
 - job: Build
   steps:
   - template: templates/build.yml
+  - task: DockerInstaller@0
+    inputs:
+      dockerVersion: '17.09.0-ce'
   - task: Docker@2
     inputs:
       containerRegistry: 'ajami1331.azurecr.io'
