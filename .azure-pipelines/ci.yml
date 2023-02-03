@@ -20,6 +20,10 @@ jobs:
   - task: Docker@2
     inputs:
       containerRegistry: 'ajami1331.azurecr.io'
+      command: 'login'
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'ajami1331.azurecr.io'
       repository: 'araf.aljami.me'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
