@@ -63,6 +63,10 @@ jobs:
           - task: DockerInstaller@0
             inputs:
               dockerVersion: '17.09.0-ce'
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'ajami1331.azurecr.io'
+              command: 'login'
           - task: DockerCompose@0
             inputs:
               containerregistrytype: 'Azure Container Registry'
