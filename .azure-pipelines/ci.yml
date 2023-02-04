@@ -55,7 +55,7 @@ jobs:
             inputs:
               containerRegistry: 'ajami1331.azurecr.io'
               command: 'login'
-
+          
           - task: DockerCompose@0
             inputs:
               containerregistrytype: 'Azure Container Registry'
@@ -63,9 +63,8 @@ jobs:
               azureContainerRegistry: '{"loginServer":"ajami1331.azurecr.io", "id" : "/subscriptions/fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0/resourceGroups/araf-build-agents/providers/Microsoft.ContainerRegistry/registries/ajami1331"}'
               dockerComposeFile: '$(Pipeline.Workspace)/docker-compose/docker-compose.yml'
               projectName: 
-              qualifyImageNames: false
-              action: 'Run a Docker Compose command'
-              dockerComposeCommand: 'up -d'
+              action: 'Run services'
+              buildImages: false
 
       routeTraffic:
           steps:
