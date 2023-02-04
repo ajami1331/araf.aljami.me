@@ -14,6 +14,6 @@ steps:
     inputs:
       SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
       Contents: '**'
-      TargetFolder: $(Build.ArtifactStagingDirectory)
-  - upload: $(Build.ArtifactStagingDirectory)
+      TargetFolder: $(Build.ArtifactStagingDirectory)/dist
+  - upload: $(Build.ArtifactStagingDirectory)/dist
     artifact: build
