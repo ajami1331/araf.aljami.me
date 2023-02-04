@@ -50,6 +50,8 @@ jobs:
         steps:
           - download: current
             artifact: build
+          - download: current
+            artifact: docker-compose
           - script: echo downloaded built artifact
       deploy:
         steps:
@@ -58,6 +60,12 @@ jobs:
               rm -rf ~/araf.aljami.me/
               cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
               sudo service nginx restart
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              dockerComposeFile: '$(Pipeline.Workspace)/docker-compose/docker-compose.yml'
+              action: 'Run services'
+
       routeTraffic:
           steps:
           - script: echo routing traffic
