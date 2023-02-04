@@ -13,14 +13,6 @@ pool:
 jobs:
 - job: Build
   steps:
-  - template: templates/build.yml
-  - task: DockerInstaller@0
-    inputs:
-      dockerVersion: '17.09.0-ce'
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'ajami1331.azurecr.io'
-      command: 'login'
   - task: Docker@2
     inputs:
       containerRegistry: 'ajami1331.azurecr.io'
@@ -49,15 +41,32 @@ jobs:
       preDeploy:
         steps:
           - download: current
-            artifact: build
+            artifact: docker-compose
           - script: echo downloaded built artifact
       deploy:
         steps:
           - script: |
               set -e
-              rm -rf ~/araf.aljami.me/
-              cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
-              sudo service nginx restart
+              # rm -rf ~/araf.aljami.me/
+              # cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
+              # sudo service nginx restart
+
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'ajami1331.azurecr.io'
+              command: 'login'
+          
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Visual Studio Enterprise Subscription(fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0)'
+              azureContainerRegistry: '{"loginServer":"ajami1331.azurecr.io", "id" : "/subscriptions/fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0/resourceGroups/araf-build-agents/providers/Microsoft.ContainerRegistry/registries/ajami1331"}'
+              dockerComposeFile: '$(Pipeline.Workspace)/docker-compose/docker-compose.yml'
+              qualifyImageNames: false
+              projectName: 
+              action: 'Run services'
+              buildImages: false
+
       routeTraffic:
           steps:
           - script: echo routing traffic
