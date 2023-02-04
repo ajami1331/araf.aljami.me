@@ -74,7 +74,7 @@ jobs:
               dockerComposeFile: '$(Pipeline.Workspace)/docker-compose/docker-compose.yml'
               action: 'Run services'
               buildImages: false
-              dockerComposePath: 'docker compose'
+              dockerComposePath: '/usr/bin/docker compose'
 
       routeTraffic:
           steps:
