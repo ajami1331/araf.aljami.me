@@ -65,9 +65,16 @@ jobs:
             inputs:
               containerRegistry: 'ajami1331.azurecr.io'
               command: 'login'
-          - script: |
-              cd $(Pipeline.Workspace)/docker-compose
-              sudo docker compose up -d
+
+          - task: DockerCompose@0
+            inputs:
+              containerregistrytype: 'Azure Container Registry'
+              azureSubscription: 'Visual Studio Enterprise Subscription(fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0)'
+              azureContainerRegistry: '{"loginServer":"ajami1331.azurecr.io", "id" : "/subscriptions/fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0/resourceGroups/araf-build-agents/providers/Microsoft.ContainerRegistry/registries/ajami1331"}'
+              dockerComposeFile: '$(Pipeline.Workspace)/docker-compose/docker-compose.yml'
+              action: 'Run services'
+              buildImages: false
+              dockerComposePath: 'docker compose'
 
       routeTraffic:
           steps:
