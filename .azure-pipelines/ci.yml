@@ -22,12 +22,16 @@ jobs:
         $(Build.BuildId)
         latest
       Dockerfile: '**/Dockerfile'
-  - task: CopyFiles@2
-    displayName: 'Copy Files to artifact staging directory'
+  - task: DockerCompose@0
     inputs:
-      SourceFolder: '$(System.DefaultWorkingDirectory)'
-      Contents: 'docker-compose.yml'
-      TargetFolder: $(Build.ArtifactStagingDirectory)/docker-compose
+      containerregistrytype: 'Azure Container Registry'
+      azureSubscription: 'Visual Studio Enterprise Subscription(fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0)'
+      azureContainerRegistry: '{"loginServer":"ajami1331.azurecr.io", "id" : "/subscriptions/fd24d692-fa14-4ae1-bc9c-b6bd3c64d6d0/resourceGroups/araf-build-agents/providers/Microsoft.ContainerRegistry/registries/ajami1331"}'
+      dockerComposeFile: '$(System.DefaultWorkingDirectory)/docker-compose.yml'
+      projectName: 
+      action: 'Lock services'
+      outputDockerComposeFile: '$((Build.ArtifactStagingDirectory)/docker-compose/docker-compose.yml'
+
   - upload: $(Build.ArtifactStagingDirectory)/docker-compose
     artifact: docker-compose
 
