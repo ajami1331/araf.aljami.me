@@ -60,7 +60,9 @@ jobs:
               rm -rf ~/araf.aljami.me/
               cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
               sudo service nginx restart
-
+          - task: DockerInstaller@0
+            inputs:
+              dockerVersion: '17.09.0-ce'
           - task: Docker@2
             inputs:
               containerRegistry: 'ajami1331.azurecr.io'
