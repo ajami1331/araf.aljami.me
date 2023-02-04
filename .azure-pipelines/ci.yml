@@ -40,8 +40,6 @@ jobs:
       maxParallel: 100%
       preDeploy:
         steps:
-          # - download: current
-          #   artifact: build
           - download: current
             artifact: docker-compose
           - script: echo downloaded built artifact
@@ -52,10 +50,6 @@ jobs:
               # rm -rf ~/araf.aljami.me/
               # cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
               # sudo service nginx restart
-          - task: Docker@2
-            inputs:
-              containerRegistry: 'ajami1331.azurecr.io'
-              command: 'login'
 
           - task: DockerCompose@0
             inputs:
