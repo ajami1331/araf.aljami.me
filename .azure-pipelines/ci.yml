@@ -27,6 +27,14 @@ jobs:
       repository: 'araf.aljami.me'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: 'docker-compose.yml'
+      TargetFolder: $(Build.ArtifactStagingDirectory)/docker-compose
+  - upload: $(Build.ArtifactStagingDirectory)/docker-compose
+    artifact: docker-compose
 
 - deployment: VMDeploy
   dependsOn: Build
