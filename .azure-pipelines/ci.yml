@@ -30,8 +30,13 @@ jobs:
       dockerComposeFile: '$(System.DefaultWorkingDirectory)/docker-compose.yml'
       projectName: 
       action: 'Lock services'
-      outputDockerComposeFile: '$((Build.ArtifactStagingDirectory)/docker-compose/docker-compose.yml'
-
+      outputDockerComposeFile: '$(Build.StagingDirectory)/docker-compose.yml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(Build.StagingDirectory)'
+      Contents: 'docker-compose.yml'
+      TargetFolder: $(Build.ArtifactStagingDirectory)/docker-compose
   - upload: $(Build.ArtifactStagingDirectory)/docker-compose
     artifact: docker-compose
 
