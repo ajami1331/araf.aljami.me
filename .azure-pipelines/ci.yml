@@ -67,7 +67,7 @@ jobs:
               command: 'login'
           - script: |
               cd $(Pipeline.Workspace)/docker-compose
-              /usr/bin/compose up -d
+              docker compose up -d
 
       routeTraffic:
           steps:
