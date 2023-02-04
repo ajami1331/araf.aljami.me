@@ -18,6 +18,7 @@ jobs:
       containerRegistry: 'ajami1331.azurecr.io'
       repository: 'araf.aljami.me'
       command: 'buildAndPush'
+      tags: latest
       Dockerfile: '**/Dockerfile'
   - task: CopyFiles@2
     displayName: 'Copy Files to artifact staging directory'
