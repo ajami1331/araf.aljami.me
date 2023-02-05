@@ -14,7 +14,7 @@ struct Site {
     description string
     base_path string
     title string
-    version int
+    version i64
 }
 
 fn build(site Site, path string) {
