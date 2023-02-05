@@ -6,8 +6,8 @@ services:
     ports:
       - '3000:3000'
     networks:
-      - network
+      - araf.aljami.me
 networks:
   # Declare our private network.  We must declare one for the magic
   # Docker DNS to work, but otherwise its default settings are fine.
-  network: {}
+  araf.aljami.me: {}
