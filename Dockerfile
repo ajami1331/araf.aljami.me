@@ -17,4 +17,6 @@ WORKDIR /root
 
 COPY --from=builder /app/dist dist
 
-CMD ["busybox", "httpd", "-f", "-v", "-p", "3000", "-h", "dist"]
+COPY httpd.conf dist/
+
+CMD ["busybox", "httpd", "-f", "-v", "-p", "3000", "-h", "dist", "-c", "httpd.conf"]
