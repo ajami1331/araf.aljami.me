@@ -73,12 +73,6 @@ jobs:
               buildImages: false
       deploy:
         steps:
-          - script: |
-              set -e
-              # rm -rf ~/araf.aljami.me/
-              # cp -r $(Pipeline.Workspace)/build ~/araf.aljami.me/
-              # sudo service nginx restart
-
           - task: Docker@2
             inputs:
               containerRegistry: 'ajami1331.azurecr.io'
@@ -107,4 +101,8 @@ jobs:
           - script: echo Restore from backup! This is on failure
         success:
           steps:
-          - script: echo Notify! This is on success
+          - script: |
+              echo Notify! This is on success
+              rm -rf ~/araf.aljami.me/
+              cp -r $(Pipeline.Workspace)/docker-compose ~/araf.aljami.me/
+              sudo service nginx restart
