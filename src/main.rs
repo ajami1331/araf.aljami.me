@@ -1,3 +1,5 @@
+mod web_server;
+
 use fs_extra;
 use fs_extra::dir::CopyOptions;
 use glob::glob;
@@ -5,6 +7,7 @@ use std::fs;
 use std::path::Path;
 use std::time::{SystemTime, UNIX_EPOCH};
 use tera::{Context, Tera};
+use toml::Table;
 
 fn main() {
     let dest_dir = Path::new("./dist");
@@ -35,7 +38,10 @@ fn main() {
         .to_string();
 
     let mut context = Context::new();
-    context.insert("siteBasePath", "https://araf.aljami.me/");
+    let config_string = fs::read_to_string("config.local.toml").unwrap();
+    let config = config_string.parse::<Table>().unwrap();
+
+    context.insert("siteBasePath", &config["siteBasePath"]);
     context.insert("timeStamp", &time_stamp);
     context.insert("siteTitle", "Araf Al Jami");
     context.insert("siteDescription", "Araf Al-Jami's personal blog");
@@ -70,4 +76,7 @@ fn main() {
             fs::write(&file_path, rendered_string).unwrap();
         }
     }
+
+
+    web_server::serve(dest_dir, 3000);
 }
