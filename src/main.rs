@@ -35,7 +35,7 @@ fn main() {
         .to_string();
 
     let mut context = Context::new();
-    context.insert("siteBasePath", "/");
+    context.insert("siteBasePath", "https://araf.aljami.me/");
     context.insert("timeStamp", &time_stamp);
     context.insert("siteTitle", "Araf Al Jami");
     context.insert("siteDescription", "Araf Al-Jami's personal blog");
@@ -47,7 +47,7 @@ fn main() {
             context.insert(
                 "body",
                 &tera
-                    .render("layouts/default.tera", &context)
+                    .render(tpl, &context)
                     .unwrap()
                     .to_string(),
             );
