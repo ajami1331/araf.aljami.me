@@ -44,13 +44,7 @@ fn main() {
 
     for tpl in tera.get_template_names() {
         if tpl.starts_with("pages/") {
-            context.insert(
-                "body",
-                &tera
-                    .render(tpl, &context)
-                    .unwrap()
-                    .to_string(),
-            );
+            context.insert("body", &tera.render(tpl, &context).unwrap().to_string());
             let rendered_string = tera.render("layouts/default.tera", &context).unwrap();
             let mut splitted_file_path = tpl
                 .strip_prefix("pages/")
