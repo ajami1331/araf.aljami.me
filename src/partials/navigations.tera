@@ -1,14 +1,14 @@
 <nav class="navigation center">
     <section class="container">
-        <a class="project-name navigation-title" href="{{ siteBasePath }}/">{{ siteTitle }}</a>
+        <a class="project-name navigation-title" href="/">{{ siteTitle }}</a>
         <ul class="list-style-none navigation-list">
             <li class="list-item-style-none">
-                <a class="navigation-list-item" href="{{ siteBasePath }}/blog" aria-label="Blogs">
+                <a class="navigation-list-item" href="/blog" aria-label="Blogs">
                     Blog
                 </a>
             </li>
             <li class="list-item-style-none">
-                <a class="navigation-list-item"  href="{{ siteBasePath }}/problem-setting" aria-label="Problem Setting">
+                <a class="navigation-list-item"  href="/problem-setting" aria-label="Problem Setting">
                     Problem Setting
                 </a>
             </li>
