@@ -36,7 +36,8 @@ fn handle_connection(mut stream: TcpStream, host: &Path) {
         if !last_file_with_query.contains('.') {
             splitted_file_name.push("index.html");
         }
-        let file_path_string = format!("{}{}", host.to_str().unwrap(), splitted_file_name.join("/"));
+        let file_path_string =
+            format!("{}{}", host.to_str().unwrap(), splitted_file_name.join("/"));
         println!("{}", &file_path_string);
         let file_path = Path::new(&file_path_string);
         if !file_path.exists() {
@@ -50,12 +51,12 @@ fn handle_connection(mut stream: TcpStream, host: &Path) {
             "txt" => write_ok_text(stream, file_path),
             "json" => write_ok_text(stream, file_path),
             "js" => write_ok_text(stream, file_path),
+            "webmanifest" => write_ok_text(stream, file_path),
             "pdf" => write_ok_binary(stream, file_path),
             "png" => write_ok_binary(stream, file_path),
             "jpg" => write_ok_binary(stream, file_path),
-            _ => write_not_implemented(stream)
+            _ => write_not_implemented(stream, file_path.extension().unwrap().to_str().unwrap()),
         }
-
 
         return;
     }
@@ -63,9 +64,10 @@ fn handle_connection(mut stream: TcpStream, host: &Path) {
     not_found(stream)
 }
 
-fn write_not_implemented(mut stream: TcpStream) {
+fn write_not_implemented(mut stream: TcpStream, ext: &str) {
+    println!("{} not implemented", ext);
     let status_line = "HTTP/1.1 501 NOT IMPLEMENTED";
-    let contents = "501 not omplemented";
+    let contents = "501 not implemented";
     let length = contents.len();
 
     let response = format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
@@ -88,11 +90,7 @@ fn write_ok_binary(mut stream: TcpStream, file_path: &Path) {
     let contents = fs::read(&file_path).unwrap();
     let length = contents.len();
 
-    let response = format!(
-        "{}\r\nContent-Length: {}\r\n\r\n",
-        status_line,
-        length
-    );
+    let response = format!("{}\r\nContent-Length: {}\r\n\r\n", status_line, length);
 
     stream.write(response.as_bytes()).unwrap();
     stream.write(&contents).unwrap();
