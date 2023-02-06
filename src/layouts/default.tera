@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <%- include('../partials/head') %>
+        {% include "partials/head.tera" %}
     </head>
     <body>
         <main class="wrapper">
-            <%- include('../partials/navigations') %>
+            {% include "partials/navigations.tera" %}
             <section class="content">
 
-                <%- body %>
+                {{ body }}
             </section>
             <footer class="site-footer">
 
             </footer>
-            <%- include('../partials/debug/reload') %>
         </main>
     </body>
 </html>
