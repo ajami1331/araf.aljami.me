@@ -6,8 +6,9 @@ COPY src/ src/
 COPY dist/ dist/
 COPY Cargo.toml .
 COPY Cargo.lock .
+COPY config.prod.toml ./config.toml
 
-RUN cargo run
+RUN cargo run --release
 
 FROM busybox:latest
 
