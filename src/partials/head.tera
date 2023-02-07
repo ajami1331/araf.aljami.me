@@ -1,7 +1,17 @@
 <meta charset="UTF-8">
-<title>{{ pageTitle or siteTitle }}</title>
-<base href="{{ siteBasePath }}" target="_blank">
-<meta name="description" content="{{ pageDescription or siteDescription }}"/>
+<title>
+    {% if pageTitle %}
+        {{ pageTitle }}
+    {% else %}
+        {{ siteTitle }}
+    {% endif %}
+</title>
+<base href="{{ siteBasePath }}">
+{% if pageDescription %}
+    <meta name="description" content="{{ pageDescription }}"/>
+{% else %}
+    <meta name="description" content="{{ siteDescription }}"/>
+{% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#157878">
 <link rel="stylesheet" href="assets/css/styles.css?v={{ timeStamp }}">

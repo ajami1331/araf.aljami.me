@@ -3,7 +3,7 @@ use std::io::{BufRead, BufReader, Write};
 use std::net::{TcpListener, TcpStream};
 use std::path::Path;
 
-pub fn serve(host: &Path, port: i32) {
+pub fn serve(host: &Path, port: i64) {
     let listener = TcpListener::bind(format!("127.0.0.1:{}", port)).unwrap();
 
     for stream in listener.incoming() {
@@ -46,12 +46,12 @@ fn handle_connection(mut stream: TcpStream, host: &Path) {
         }
 
         match file_path.extension().unwrap().to_str().unwrap() {
-            "html" => write_ok_text(stream, file_path),
-            "css" => write_ok_text(stream, file_path),
-            "txt" => write_ok_text(stream, file_path),
-            "json" => write_ok_text(stream, file_path),
-            "js" => write_ok_text(stream, file_path),
-            "webmanifest" => write_ok_text(stream, file_path),
+            "html" => write_ok_binary(stream, file_path),
+            "css" => write_ok_binary(stream, file_path),
+            "txt" => write_ok_binary(stream, file_path),
+            "json" => write_ok_binary(stream, file_path),
+            "js" => write_ok_binary(stream, file_path),
+            "webmanifest" => write_ok_binary(stream, file_path),
             "pdf" => write_ok_binary(stream, file_path),
             "png" => write_ok_binary(stream, file_path),
             "jpg" => write_ok_binary(stream, file_path),
