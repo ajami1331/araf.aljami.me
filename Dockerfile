@@ -1,15 +1,14 @@
-FROM node:18-alpine as builder
+FROM rust:1 as builder
 
 WORKDIR /app/
 
 COPY src/ src/
-COPY js/ js/
 COPY dist/ dist/
-COPY package.json .
-COPY package-lock.json .
+COPY Cargo.toml .
+COPY Cargo.lock .
+COPY config.prod.toml ./config.toml
 
-RUN npm install
-RUN npm start
+RUN cargo run --release
 
 FROM busybox:latest
 

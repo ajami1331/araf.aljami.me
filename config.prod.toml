@@ -1,0 +1,6 @@
+siteBasePath = "https://araf.aljami.me"
+port = 3000
+runWebServer = false
+siteTitle = "Araf Al Jami"
+siteDescription = "Araf Al-Jami's personal blog"
+githubRepo = "CLown1331/araf.aljami.me"

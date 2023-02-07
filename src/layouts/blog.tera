@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <%- include('../partials/head') %>
+        {% include "partials/head.tera"  %}
     </head>
     <body>
         <main class="wrapper">
-            <%- include('../partials/navigations') %>
+            {% include "partials/navigations.tera" %}
             <section class="content">
                 <div class="container">
-                    <h1><%- page.Title %></h1>
-                    <h2><%- page.Date %></<h2>
+                    <h1> {{pageTitle}} </h1>
+                    <h2> {{pageDate}} </<h2>
                     <div class="blog-content">
-                        <%- body %>
+                        {{body}} 
                     </div>
                 </div>
             </section>
-            <%- include('../partials/comments') %>
+            {% include "partials/comments.tera" %}
             <footer class="site-footer">
 
             </footer>
-            <%- include('../partials/debug/reload') %>
         </main>
 </body>
 </html>
