@@ -75,16 +75,6 @@ fn write_not_implemented(mut stream: TcpStream, ext: &str) {
     stream.write_all(response.as_bytes()).unwrap();
 }
 
-fn write_ok_text(mut stream: TcpStream, file_path: &Path) {
-    let status_line = "HTTP/1.1 200 OK";
-    let contents = fs::read_to_string(&file_path).unwrap();
-    let length = contents.len();
-
-    let response = format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
-
-    stream.write_all(response.as_bytes()).unwrap();
-}
-
 fn write_ok_binary(mut stream: TcpStream, file_path: &Path) {
     let status_line = "HTTP/1.1 200 OK";
     let contents = fs::read(&file_path).unwrap();
