@@ -11,6 +11,7 @@ COPY --from=planner /app/recipe.json recipe.json
 RUN cargo chef cook --release --recipe-path recipe.json
 # Build application
 COPY . .
+COPY config.prod.toml config.toml
 
 RUN cargo run --release
 
