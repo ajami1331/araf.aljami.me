@@ -3,7 +3,7 @@ pr:
 trigger: none
 
 pool:
-  default
+  vmImage: ubuntu-latest
 
 jobs:
 - job: Build
