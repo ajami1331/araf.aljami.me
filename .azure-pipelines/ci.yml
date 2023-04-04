@@ -7,8 +7,8 @@ pr: none
 trigger:
 - master
 
-pool:
-  default
+pool: 
+  vmImage: ubuntu-latest
 
 jobs:
 - job: Build
