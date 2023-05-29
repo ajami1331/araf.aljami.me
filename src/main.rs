@@ -79,7 +79,7 @@ fn main() {
     context.insert("siteDescription", &config["siteDescription"].as_str());
     context.insert("githubRepo", &config["githubRepo"].as_str());
 
-    context.insert("body", "Araf Al-Jami's personal blog");
+    context.insert("body", "Araf Al Jami's personal blog");
 
     for tpl in pages {
         if tpl.ends_with(".tera") {

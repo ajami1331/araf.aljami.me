@@ -2,5 +2,5 @@ siteBasePath = "http://localhost:3000"
 port = 3000
 runWebServer = true
 siteTitle = "Araf Al Jami"
-siteDescription = "Araf Al-Jami's personal blog"
+siteDescription = "Araf Al Jami's personal blog"
 githubRepo = "CLown1331/araf.aljami.me"

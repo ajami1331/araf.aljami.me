@@ -7,7 +7,7 @@ Tags = "hello-world"
 ---
 Hello World! So this it?
 
-Hi, I am Araf Al-Jami, a Software Engineer by trade and a Master Procrastinator by fate.
+Hi, I am Araf Al Jami, a Software Engineer by trade and a Master Procrastinator by fate.
 I was meaning to start a blog, but as a master procrastinator, I thought it was more important to write a static blogger first.
 And then, I just forget about this. Hmm.
 
