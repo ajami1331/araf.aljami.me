@@ -3,4 +3,4 @@ port = 3000
 runWebServer = true
 siteTitle = "Araf Al Jami"
 siteDescription = "Araf Al Jami's personal blog"
-githubRepo = "CLown1331/araf.aljami.me"
+githubRepo = "ajami1331/araf.aljami.me"
