@@ -1,8 +1,8 @@
-
 version: "3.6"
 services:
   araf.aljami.me:
     image: 'ajami1331.azurecr.io/araf.aljami.me:latest'
+    restart: always
     ports:
       - '3000:3000'
     networks:
