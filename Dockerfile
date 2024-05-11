@@ -23,4 +23,4 @@ COPY --from=builder /app/dist dist
 
 COPY httpd.conf dist/
 
-CMD ["busybox-httpd", "httpd", "-f", "-v", "-p", "3000", "-h", "dist", "-c", "httpd.conf"]
+CMD ["busybox-httpd", "-f", "-v", "-p", "3000", "-h", "dist", "-c", "httpd.conf"]
