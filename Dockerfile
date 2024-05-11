@@ -15,7 +15,7 @@ COPY config.prod.toml config.toml
 
 RUN cargo run --release
 
-FROM busybox:latest
+FROM lipanski/docker-static-website:latest
 
 WORKDIR /root
 
