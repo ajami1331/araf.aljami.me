@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - run: ls
     - name: Prepare config
       run: mv config.prod.toml config.toml
     - uses: actions/checkout@v4
