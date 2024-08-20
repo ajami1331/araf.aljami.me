@@ -15,10 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: ls
+    - uses: actions/checkout@v4
     - name: Prepare config
       run: mv config.prod.toml config.toml
-    - uses: actions/checkout@v4
     - name: Build
       run: cargo run --release --verbose
     - name: Deploy
