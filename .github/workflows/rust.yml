@@ -1,0 +1,27 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Prepare config
+      run: mv config.prod.toml config.toml
+    - uses: actions/checkout@v4
+    - name: Build
+      run: cargo run --release --verbose
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
