@@ -1,7 +1,7 @@
----
++++
 Layout = "blog"
 Title = "Authored Problems"
----
++++
 ## You can find my problem on these online judges.
 
 1. [Toph](https://toph.co/u/CLown1331/problems)
