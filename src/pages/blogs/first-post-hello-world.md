@@ -1,10 +1,10 @@
----
++++
 Layout = "blog"
 Title = "First Post, Hello World"
 Date = "Tue, 02 Feb 2021"
 Language = "en"
 Tags = "hello-world"
----
++++
 Hello World! So this it?
 
 Hi, I am Araf Al Jami, a Software Engineer by trade and a Master Procrastinator by fate.
